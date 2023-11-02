@@ -26,6 +26,7 @@ def timer_count():
     board.digital_write(RED, 0)
     board.digital_write(GREEN, 1)
     buzzer()
+    board.digital_write(GREEN, 0)
 
 def buzzer():
     i = 0
@@ -37,9 +38,9 @@ def buzzer():
         i += 1
 
 def main():
+    setup()
     while True:
         try:
-            setup()
             timer_count()
         except KeyboardInterrupt:
             board.displayOff()
