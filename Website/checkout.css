@@ -1,0 +1,97 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("https://www.tampabay.com/resizer//vcLD9mB2M2BRi8sNHdi4iMs4OqE=/620x0/filters:format(webP)/arc-anglerfish-arc2-prod-tbt.s3.amazonaws.com/public/6JASAVXJI5GABMZIGVNMPJYZDQ.JPG");
+    background-size: cover;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%; 
+    align-items: center;
+  }
+  
+  .logo img {
+    max-height: auto;
+    width: 13%;
+    border-radius:67px
+}
+
+h1 {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.order-summary, .user-info {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha (last) value for more transparency */
+    border: 1px solid #ccc;
+    padding: 10px;
+    flex: 1;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.remove-button {
+    background-color: #ff6666;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+ul#basket-list li:last-child {
+    border-bottom: none;
+}
+
+.user-info-form {
+    padding: 20px;
+}
+
+.user-info-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.user-info-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkout-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Page</title>
+    <link rel="stylesheet" type="text/css" href="checkout.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="https://img.freepik.com/premium-vector/italian-pizza-restaurant-vintage-style-design-logo-symbols-food-drink-restaurants_605910-647.jpg?w=996" alt="Logo">
+    </div>
+    <br>
+    <h1>Checkout Page</h1>
+
+    <div class="container">
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <ul id="basket-list">
+            </ul>
+        </div>
+        <div class="user-info">
+            <h2>User Information</h2>
+            <div class="user-info-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for "phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <button class="checkout-button" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addItem(productName) {
+            var basketList = document.getElementById('basket-list');
+            var listItem = document.createElement('li');
+            var removeButton = document.createElement('button');
+
+            listItem.textContent = productName;
+
+            removeButton.textContent = 'Remove';
+            removeButton.className = 'remove-button';
+            removeButton.onclick = function () {
+                basketList.removeChild(listItem);
+            };
+
+            listItem.appendChild(removeButton);
+            basketList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
