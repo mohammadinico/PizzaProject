@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+</head>
+
+<body>
+    <h1>Received Data</h1>
+    <div id="data-container"></div>
+
+    <script>
+        // JavaScript code to handle displaying received data
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/add_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the received JSON data here
+                var dataContainer = document.getElementById('data-container');
+                dataContainer.textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+
+</html>

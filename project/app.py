@@ -1,9 +1,11 @@
-import os, random
-from flask import Flask, render_template, request
+import os, random, requests
+from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
+server_url = "http://127.0.0.1:5000/add_data"
+all = []
 
 # Change the path for project folder to the pathway of your own pc/laptop.
 project_folder = os.path.abspath(r"C:\Users\nicom\OneDrive\Bureaublad\PizzaProject\project")
@@ -102,6 +104,7 @@ def drinks():
 
 @app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
+    global name, size, quantity, beverage, bev_quantity
     if request.method == 'POST':
         
         size = request.form['size']
@@ -129,6 +132,15 @@ def orderdone():
     return render_template('orderdone.html')
 
 
+second_app_url = 'http://127.0.0.1:80/'
+
+def send_data(all):
+    all = [name, size, quantity, beverage, bev_quantity]
+
+    response = request.post(f"{second_app_url}/add_data", json=all)
+
+    requests.post(server_url, json=all )
+
 
 
 if __name__ == '__main__':
@@ -137,3 +149,7 @@ if __name__ == '__main__':
         # add_fixed_items() #use to add the fixed items
         # clear_tables() #use to clear the tables
     app.run(debug=True)
+
+
+
+
