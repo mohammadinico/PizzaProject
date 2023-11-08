@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask App</title>
+    <link rel="stylesheet" type="text/css" href="static/css/Luigi.css">
 </head>
-
 <body>
-    <h1>Checkout Order</h1>
-
-    <ul>
-        {% for order in order_list %}
-            <li>
-                <h2>Pizza: {{ order.name }}</h2>
-                <p>Size: {{ order.size }}</p>
-                <p>Quantity: {{ order.quantity }}</p>
-                <p>Beverage: {{ order.beverage }}</p>
-                <p>Beverage Quantity: {{ order.bev_quantity }}</p>
-                <p>Pizzas: {{ order.pizzas }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <h1>Luigi's Orders</h1>
+    <h2>Orders</h2>
+    <div class="order-box">
+        <form method="post" action="/remove_order">
+            <button type="submit" name="remove_all">Remove Order</button>
+            <ul class="order-list">
+                {% if order_list %}
+                    <li class="order-item">
+                        <div class="order-header">
+                            <strong>Name:</strong> {{ order_list[0][0] }}<br>
+                            <strong>Size:</strong> {{ order_list[0][1] }}<br>
+                            <strong>Quantity:</strong> {{ order_list[0][2] }}<br>
+                            <strong>Beverage:</strong> {{ order_list[0][3] }}<br>
+                            <strong>Beverage Quantity:</strong> {{ order_list[0][4] }}<br>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </form>
+    </div>
 </body>
-
 </html>

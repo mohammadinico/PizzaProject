@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -132,20 +132,19 @@ def orderdone():
 @app.route('/luigi', methods=['GET', 'POST'])
 def luigi():
     global order_list, name, size, quantity, beverage, bev_quantity, pizzas
-    # listitems = name, size, quantity, beverage, bev_quantity
-    order_list.append({
-        'name': name,
-        'size': size,
-        'quantity': quantity,
-        'beverage': beverage,
-        'bev_quantity': bev_quantity,
-        'pizzas': pizzas
-    })
+    order_item = [name, size, quantity, beverage, bev_quantity]
+    order_list.append(order_item)
     return render_template('luigi.html', order_list=order_list)
 
+@app.route('/remove_order', methods=['POST'])
+def remove_order():
+    global order_list
 
+    if order_list:
+        # Remove the order at the lowest index (oldest order)
+        removed_order = order_list.pop(0)
 
-
+    return redirect('/luigi')
 
 
 
@@ -157,7 +156,3 @@ if __name__ == '__main__':
         # add_fixed_items() #use to add the fixed items
         # clear_tables() #use to clear the tables
     app.run(debug=True)
-
-
-
-

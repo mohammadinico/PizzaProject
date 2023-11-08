@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    background-color: #ff8800;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.order-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+h2 {
+    color: #333;
+    margin: 0;
+}
+
+.order-box button {
+    background-color: #ff8800;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.order-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.order-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+}
