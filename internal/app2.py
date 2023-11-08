@@ -6,12 +6,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/add_data', methods=['POST'])
+@app.route('/', methods=['POST'])
 def receive_data():
-    all = request.json
-
-    return f'{all}'
-
+    received_data = request.json
+    return jsonify(received_data)  # You can return the received data as a JSON response.
 
 if __name__ == '__main__':
     app.run(port=80)

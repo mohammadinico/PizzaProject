@@ -1,14 +1,12 @@
-import os, random, requests
-from flask import Flask, render_template, request, jsonify
+import os
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-server_url = "http://127.0.0.1:5000/add_data"
-all = []
+order_list = []
 
-# Change the path for project folder to the pathway of your own pc/laptop.
-project_folder = os.path.abspath(r"C:\Users\nicom\OneDrive\Bureaublad\PizzaProject\project")
+project_folder = os.path.abspath(r"C:\Users\radil\PizzaProject\project")
 db_folder = os.path.join(project_folder, "database")
 db_file = os.path.join(db_folder, "mydatabase.db")
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_file}"  
@@ -104,9 +102,9 @@ def drinks():
 
 @app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
-    global name, size, quantity, beverage, bev_quantity
+    global name, size, quantity, beverage, bev_quantity, order_list
     if request.method == 'POST':
-        
+
         size = request.form['size']
         name = request.form['pizza']
         quantity = int(request.form['quantity'])
@@ -123,7 +121,7 @@ def checkout():
         bev_price = float(str(bev_price_query[0]))
         total_price = (pizza_price * quantity) + (bev_price * bev_quantity)
         
-    return render_template('checkoutpage.html', pizzas=pizzas,
+        return render_template('checkoutpage.html', pizzas=pizzas,
                             size=size, name=name, quantity=quantity,
                             pizza_price=pizza_price, beverage=beverage, bev_quantity=bev_quantity, bev_price=bev_price, total_price=total_price)
 
@@ -131,21 +129,31 @@ def checkout():
 def orderdone():
     return render_template('orderdone.html')
 
+@app.route('/luigi', methods=['GET', 'POST'])
+def luigi():
+    global order_list, name, size, quantity, beverage, bev_quantity, pizzas
+    # listitems = name, size, quantity, beverage, bev_quantity
+    order_list.append({
+        'name': name,
+        'size': size,
+        'quantity': quantity,
+        'beverage': beverage,
+        'bev_quantity': bev_quantity,
+        'pizzas': pizzas
+    })
+    return render_template('luigi.html', order_list=order_list)
 
-second_app_url = 'http://127.0.0.1:80/'
 
-def send_data(all):
-    all = [name, size, quantity, beverage, bev_quantity]
 
-    response = request.post(f"{second_app_url}/add_data", json=all)
 
-    requests.post(server_url, json=all )
+
 
 
 
 if __name__ == '__main__':
     with app.app_context():
         db.create_all() 
+    
         # add_fixed_items() #use to add the fixed items
         # clear_tables() #use to clear the tables
     app.run(debug=True)

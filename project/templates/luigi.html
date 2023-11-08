@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+</head>
+
+<body>
+    <h1>Checkout Order</h1>
+
+    <ul>
+        {% for order in order_list %}
+            <li>
+                <h2>Pizza: {{ order.name }}</h2>
+                <p>Size: {{ order.size }}</p>
+                <p>Quantity: {{ order.quantity }}</p>
+                <p>Beverage: {{ order.beverage }}</p>
+                <p>Beverage Quantity: {{ order.bev_quantity }}</p>
+                <p>Pizzas: {{ order.pizzas }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
