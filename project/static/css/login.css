@@ -1,0 +1,96 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("https://www.tampabay.com/resizer//vcLD9mB2M2BRi8sNHdi4iMs4OqE=/620x0/filters:format(webP)/arc-anglerfish-arc2-prod-tbt.s3.amazonaws.com/public/6JASAVXJI5GABMZIGVNMPJYZDQ.JPG"); 
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%; 
+  align-items: center;
+}
+
+.logo img {
+  max-width: 10%;
+  height: auto;
+  border-radius:20px
+}
+
+.navbar {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: -40px;
+  }
+  
+  .navbar a {
+    color: #f2f2f2;
+    font: 20px "Times New Roman", Times, serif; 
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+
+  .left-links {
+    order: 1;
+  }
+  
+  .right-links {
+    order: 3;
+}
+
+
+.login-container {
+    position: relative;
+    height: 40%;
+    margin: auto; 
+    top: 15%; 
+    background: rgba(255, 255, 255, 0.7); 
+    padding: 30px;
+    width: 300px;
+    border-radius: 30px;
+    text-align: center;
+    font: 20px "Times New Roman", Times, serif;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+.form-group label {
+    display: block;
+}
+
+.form-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group button {
+    background-color: #ff8800;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.footer { 
+  color: #101010;
+  font: 15px "Times New Roman", Times, serif; 
+  text-align: center;
+  padding: 14px 20px;
+  position: absolute;
+  bottom: 0px;
+  right:700px;
+}

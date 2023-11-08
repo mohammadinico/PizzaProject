@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Page</title>
+    <link rel="stylesheet" type="text/css" href="static/css/checkout.css">
+</head>
+<body>
+    <center>
+        <div class="logo"> 
+            <a href="/">
+            <img src="https://img.freepik.com/premium-vector/italian-pizza-restaurant-vintage-style-design-logo-symbols-food-drink-restaurants_605910-647.jpg?w=996">
+         </a>
+       </div>
+    </center>
+    
+    <br>
+    <h1>Checkout Page</h1>
+
+    <div class="container">
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <h1>checkout</h1>
+       
+            <ul>
+                <li>Pizza: {{ pizzas[0] }}</li>
+                <li>Size: {{ size }}</li>
+                <li>Price: €{{ pizza_price }}</li> 
+                <li>Quantity: {{ quantity }}</li><br>
+                <li>Beverage: {{ beverage }}</li>
+                <li>Beverage price: €{{ bev_price }}</li>
+                <li>Beverage quantity: {{ bev_quantity }}</li>
+
+    
+            </ul>
+           <ul>
+            <strong><li>Total Price: €{{ total_price }}</li></strong>
+        </div>
+        <div class="user-info">
+            <h2>User Information</h2>
+            <div class="user-info-form">
+                <form action="orderdone" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for "phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <button class="checkout-button" href="orderdone">Checkout</button>
+            </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

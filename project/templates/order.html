@@ -5,28 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Page</title>
-    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="static/css/order.css">
 </head>
 
 <body>
 
-    <div class="logo">
-        <img src="https://img.freepik.com/premium-vector/italian-pizza-restaurant-vintage-style-design-logo-symbols-food-drink-restaurants_605910-647.jpg?w=996" style="width: 13%; height: auto; border-radius:67px;">
-    </div>
+    <center>
+        <div class="logo"> 
+            <a href="/">
+            <img src="https://img.freepik.com/premium-vector/italian-pizza-restaurant-vintage-style-design-logo-symbols-food-drink-restaurants_605910-647.jpg?w=996">
+         </a>
+       </div>
+    </center>
+    
 
-    <header>
+    <!-- <header>
         <div class="navbar">  
           <div class="left-links">
-                <a  href = "home.html" > Home </a> 
-                <a  href = "menu.html" > Menu </a> 
+                <a  href = "/" > Home </a> 
+                <a  href = "menu" > Menu </a> 
             </div> 
   
          <div class="right-links"> 
-                <a  href = "order.html" > Order </a> 
-                <a  href = "login.html" > Login </a>
+                <a  href = "order" > Order </a> 
+                <a  href = "login" > Login </a>
             </div>
        </div>
-    </header>
+    </header> -->
 
     <div class="message">
         <h2> <b>  &mdash;Order for delivery&mdash; </b> </h2>
@@ -50,9 +55,9 @@
 
             <label for="size">Pizza Size:</label>
             <select name="size" required>
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>
+                <option value="Small">Small (€8.99)</option>
+                <option value="Medium">Medium (€10.99)</option>
+                <option value="Large">Large (€12.99)</option>
             </select>
 
             <br>
@@ -62,14 +67,15 @@
 
             <label for="beverage">Beverage:</label>
             <select name="beverage" required>
-                <option value="Homemade Lemonade">Homemade Lemonade</option>
-                <option value="Coke">Coke</option>
-                <option value="Moretti beer">Moretti beer</option>
+                <option value="none">--none--</option>
+                <option value="Homemade Lemonade">Homemade Lemonade (€2.99)</option>
+                <option value="Coke">Coke (€1.99)</option>
+                <option value="Moretti beer">Moretti beer (€2.99)</option>
             </select>
 
             <br>
             <label for="bevquantity">Quantity:</label>
-            <input type="number" name="bevquantity" placeholder="Enter quantity" required>
+            <input type="number" name="bevquantity" placeholder="Enter quantity" required value = "0">
             <br><br>
             
             <input type="submit" value="Place Order">
